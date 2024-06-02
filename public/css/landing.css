@@ -1,0 +1,114 @@
+#showcase {
+	background: white url("../images/wallpaper2.gif") no-repeat center center/cover;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	border-bottom: 3px solid #93a48f;
+}
+
+#showcase .showcase-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	color: #93a48f;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+/* Styling for the heading inside the showcase section */
+#showcase .showcase-content > h1 {
+	position: absolute;
+	padding-bottom: 5%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0); /* Transparent background */
+}
+
+/* Styling for visited links within the showcase section */
+#showcase .showcase-content a:visited {
+	color: #93a48f;
+	text-decoration-color: #93a48f;
+}
+
+#randomWelcome {
+	font-size: 48px;
+}
+
+.btn {
+	position: absolute;
+	text-decoration: none;
+	margin-top: 5%;
+	display: inline-block;
+	background: #3f2f38;
+	padding: 0.5rem 2rem;
+}
+
+.btn:hover {
+	padding: calc(0.5rem - 3px) calc(2rem - 3px);
+	border: 3px solid #93a48f;
+	text-decoration: underline;
+}
+
+#aboutme {
+	margin: 1% 5%;
+}
+
+#what-i-do {
+	margin: 1% 5%;
+}
+
+#weather {
+	text-align: center;
+	margin: 1% 5%;
+}
+
+#weather ul {
+	display: inline-block;
+	text-align: left;
+	font-family: monospace;
+}
+
+#weather li {
+	margin: 1px;
+}
+
+h2 {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#experiences {
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+#playing-with-pi {
+	grid-column: span 2;
+}
+
+#playing-with-pi-image {
+	padding-left: 10%;
+	text-align: center;
+}
+
+#playing-with-pi-image img{
+	width: 80%;
+}
+
+
+#funWithIoT {
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+#iotpara {
+	grid-column: span 2;
+}
+
+
+#iotimage {
+	padding-left: 10%;
+	text-align: center;
+}
+
+#iotimage img {
+	width: 80%;
+}

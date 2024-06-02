@@ -1,0 +1,23 @@
+{
+	"name": "mainsite-rebuild",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./src/webserver.js",
+	"scripts": {
+		"consolerun": "export NODE_ENV='development' && node ."
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^1.7.2",
+		"better-sqlite3": "^11.0.0",
+		"dotenv": "^16.4.5",
+		"ejs": "^3.1.10",
+		"express": "^4.19.2",
+		"express-rate-limit": "^7.2.0",
+		"helmet": "^7.1.0",
+		"quick.db": "^9.1.7",
+		"request-ip": "^3.3.0"
+	}
+}
