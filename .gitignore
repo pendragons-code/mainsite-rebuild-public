@@ -6,3 +6,4 @@ DATABASE.sqlite
 .env.production
 node_modules
 personalConfigs
+internal.md
