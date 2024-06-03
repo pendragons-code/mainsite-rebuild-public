@@ -3,7 +3,7 @@
 	width: 100%;
 	height: 100vh;
 	position: relative;
-	border-bottom: 3px solid #93a48f;
+	border-bottom: 3px solid #b29272;
 }
 
 #showcase .showcase-content {
@@ -11,8 +11,8 @@
 	justify-content: center;
 	align-items: center;
 	height: 100%;
-	color: #93a48f;
-	background-color: rgba(0, 0, 0, 0.5);
+	color: #b29272;
+	background-color: rgba(0, 0, 0, 0.3);
 }
 /* Styling for the heading inside the showcase section */
 #showcase .showcase-content > h1 {
@@ -24,12 +24,18 @@
 
 /* Styling for visited links within the showcase section */
 #showcase .showcase-content a:visited {
-	color: #93a48f;
-	text-decoration-color: #93a48f;
+	color: #b29272;
+	text-decoration-color: #b29272;
 }
 
 #randomWelcome {
-	font-size: 48px;
+	margin-top: 3%;
+	font-size: 32px;
+}
+
+#welcomeNotFound {
+	margin-top: 3%;
+	font-size: 32px;
 }
 
 .btn {
@@ -43,7 +49,7 @@
 
 .btn:hover {
 	padding: calc(0.5rem - 3px) calc(2rem - 3px);
-	border: 3px solid #93a48f;
+	border: 3px solid #b29272;
 	text-decoration: underline;
 }
 

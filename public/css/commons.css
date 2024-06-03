@@ -12,7 +12,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	color: #93a48f;
+	color: #b29272;
 }
 
 p, li, figcaption {
@@ -25,7 +25,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: #93a48f;
+	color: #b29272;
 }
 
 a:hover {
@@ -35,11 +35,11 @@ a:hover {
 code {
 	padding: 3px;
 	background-color: #000000;
-	color: #93a48f;
+	color: #b29272;
 }
 
 img {
-	border: 3px solid #93a48f;
+	border: 3px solid #b29272;
 }
 
 li {
@@ -51,10 +51,10 @@ li {
 	position: sticky;
 	justify-content: space-between;
 	top: 0;
-	color: #93a48f;
+	color: #b29272;
 	z-index: 1;
 	padding: 1rem;
-	border-bottom: 3px solid #93a48f;
+	border-bottom: 3px solid #b29272;
 }
 
 #navbar h1 {
@@ -79,7 +79,7 @@ li {
 }
 
 .commonSection {
-	border: 3px solid #93a48f;
+	border: 3px solid #b29272;
 	width: 90%;
 	margin: 1% 5%;
 }
@@ -90,15 +90,15 @@ li {
 
 article {
 	padding: 4% 10%;
-	border: 2px solid #93a48f;
-	color: #93a48f;
+	border: 2px solid #b29272;
+	color: #b29272;
 }
 
 .generalSection {
 	margin: 1% 10%;
 	padding: 2% 12%;
-	color: #93a48f;
-	border: 3px solid #93a48f
+	color: #b29272;
+	border: 3px solid #b29272
 }
 
 .container {
@@ -111,12 +111,12 @@ article {
 /*navigation*/
 
 .dropbtn {
-	color: #93a48f;
+	color: #b29272;
 	padding: 10px;
 	font-size: 16px;
-	border: 4px solid #93a48f;
-	border-bottom: 6px solid #93a48f;
-	border-right: 6px solid #93a48f
+	border: 4px solid #b29272;
+	border-bottom: 6px solid #b29272;
+	border-right: 6px solid #b29272
 }
 
 .dropbtn:hover {
@@ -136,7 +136,7 @@ article {
 	display: none;
 	position: absolute;
 	min-width: 160px;
-	border: 2px solid #93a48f;
+	border: 2px solid #b29272;
 	z-index: 1;
 }
 
@@ -149,7 +149,7 @@ article {
 /* Focus the selection */
 .dropdown-content a:hover {
 	text-decoration: underline;
-	background-color: #93a48f;
+	background-color: #b29272;
 	color: #3f2f38;
 }
 
@@ -166,8 +166,8 @@ article {
 
 footer {
 	text-align: center;
-	color: #93a48f;
-	border-top: 3px solid #93a48f;
+	color: #b29272;
+	border-top: 3px solid #b29272;
 	height: auto;
 	padding: 1%;
 }
@@ -183,7 +183,7 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #93a48f
+	background: #b29272
 }
 
 @keyframes fadeIn {

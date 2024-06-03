@@ -1,5 +1,4 @@
 const express = require("express");
-const { routesAndDestination } = require("../configuration/routes.js");
 const routeFrontEnd = express.Router();
 
 routeFrontEnd.get(`/`, async (req, res) => {
@@ -24,10 +23,12 @@ routeFrontEnd.get(`/picoctf`, async (req, res) => {
 	res.render("picoctf", { articles: picoCtfArticlesNames }); // [friendlyName, Url]
 });
 
-for(endPoint of Object.keys(routesAndDestination)) {
-	routeFrontEnd.get(`/${endPoint}`, async (req, res) => {
-		res.render(routesAndDestination[`${endPoint}`]);
-	});
-}
+routeFrontEnd.get(`/contact`, async (req, res) => {
+	res.render("contact");
+});
+
+routeFrontEnd.get(`/hug`, async (req, res) => {
+	res.render("huggie");
+});
 
 module.exports = routeFrontEnd;
