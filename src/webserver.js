@@ -7,6 +7,7 @@ const { appendFile } = require("fs");
 const app = express();
 const port = process.env.port || 3000;
 const frontEndRoutes = require("./frontEndRoutes.js");
+const apiRoutes = require("./apiRoutes.js");
 
 // global variables for picoctf articles
 global.picoCtfUrl = [];
@@ -40,19 +41,20 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use("/", frontEndRoutes);
-app.use(express.static(join(__dirname, "../public")));
-
-app.use(function(req, res) {
-	res.render("404.ejs");
-});
-
 app.use(helmet({
 	contentSecurityPolicy: false,
 	nosniff: true,
 	xssFilter: true,
 	hsts: { maxAge: 31536000, includesSubDomiains: true }
 }));
+
+app.use("/", frontEndRoutes);
+app.use("/api", apiRoutes);
+app.use(express.static(join(__dirname, "../public")));
+
+app.use(function(req, res) {
+	res.render("404.ejs");
+});
 
 app.listen((port), async() => {
 	console.log(`Hanging onto dear life at ${process.pid}\nCurrently listening at http://localhost:${port}!`);
