@@ -1,4 +1,5 @@
 const express = require("express");
+const { routesAndDestination } = require("../configuration/routes.js");
 const routeFrontEnd = express.Router();
 
 routeFrontEnd.get(`/`, async (req, res) => {
@@ -18,5 +19,15 @@ routeFrontEnd.get(`/`, async (req, res) => {
 
 	res.render("landingPage", { weather: weather });
 });
+
+routeFrontEnd.get(`/picoctf`, async (req, res) => {
+	res.render("picoctf", { articles: picoCtfArticlesNames }); // [friendlyName, Url]
+});
+
+for(endPoint of Object.keys(routesAndDestination)) {
+	routeFrontEnd.get(`/${endPoint}`, async (req, res) => {
+		res.render(routesAndDestination[`${endPoint}`]);
+	});
+}
 
 module.exports = routeFrontEnd;

@@ -1,3 +1,40 @@
+@media screen and (max-width: 500px) {
+
+	#navbar h1 {
+		font-size: 16px;
+	}
+
+	#randomWelcome {
+		font-size: 16px;
+	}
+
+	.btn {
+		margin-top: 25%;
+	}
+
+	#playing-with-pi-image {
+		display: none;
+	}
+
+	#iotpara {
+		grid-column: span 3;
+	}
+
+	#playing-with-pi {
+		grid-column: span 3;
+	}
+
+	#iotimage {
+		display: none;
+	}
+
+	pre {
+		white-space: pre-line;
+		word-wrap: break-word;
+	}
+
+}
+
 @media screen and (max-width: 960px) and (max-height: 1080px) {
 
 	#playing-with-pi-image {
@@ -14,6 +51,20 @@
 
 	#iotimage {
 		display: none;
+	}
+
+
+}
+
+@media screen and (max-width: 1366px) and (max-height: 768px) {
+
+	#playing-with-pi-image {
+		padding-top: 30%;
+		width: 90%;
+	}
+	#iotimage {
+		padding-top: 30%;
+		width: 90%;
 	}
 
 }

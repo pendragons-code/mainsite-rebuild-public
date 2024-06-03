@@ -9,8 +9,9 @@ const port = process.env.port || 3000;
 const frontEndRoutes = require("./frontEndRoutes.js");
 
 // global variables for picoctf articles
-global.picoCtfUrl = []
-global.picoCtfUrlDir = []
+global.picoCtfUrl = [];
+global.picoCtfUrlDir = [];
+global.picoCtfArticlesNames = "";
 
 // database
 const { QuickDB } = require("quick.db");
@@ -18,6 +19,7 @@ global.db = new QuickDB({ filePath: "DATABASE/DATABASE.sqlite" });
 
 // request manager
 require("./weather.js");
+require("./articles.js");
 
 app.use(function(req, res, next) {
 	res.setHeader("Content-Security-Policy", "frame-ancestors 'self';");

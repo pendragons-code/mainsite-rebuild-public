@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta property="og:type" content="pendragonscode.xyz">
+	<meta property="og:site_name" content="Pendragon's main site.">
+	<meta property="og:title" content="Pendragon's main site.">
+	<meta property="og:description" content="A basic site that I made for fun.">
+	<meta name="og:image" content="/images/PFP.png">
+	<meta name="theme-color" content="#1F618D">
+	<link rel="stylesheet" href="/css/commons.css">
+	<link rel="stylesheet" href="/css/landing.css">
+	<link rel="stylesheet" href="/css/mobile.css">
+	<title>Pendragon's code</title>
+	<script src="https://kit.fontawesome.com/be4616c9da.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav id="navbar">
+		<div class="dropdown">
+			<button class="dropbtn">Navigation</button>
+			<div class="dropdown-content">
+				<a href="/">Home!</a>
+				<a href="https://ko-fi.com/pendragonscode">Donate to me!</a>
+				<a href="https://github.com/pendragons-code">Github!</a>
+				<a href="/contact">Contacts!</a>
+				<a href="/picoCtf">PicoCtf!</a>
+				<a href="https://wordlist.mipan.site/">WordList!</a>
+				<a href="https://pixeljeff.tumblr.com/post/675186511641264128/new-dawn-2022">Wallpaper 1!</a>
+				<a href="https://www.artstation.com/artwork/r9VlQe">Wallpaper 2!</a>
+			</div>
+		</div>
+		<h1>Pendragonscode</h1>
+	</nav>
+	<section>
+		<article class="commonSection">
+					<a href="https://play.picoctf.org/practice/challenge/170"><u>Wave a flag</u></a> is a simple challenge you can find on the picoGym.<br><br>The hint is as follows
+					<br><br><code>Can you invoke help flags for a tool or binary? This program has extraordinarily helpful information.</code><br><br>This
+					tells us that the challenge revolves around an executable file and we want to manipulate it
+					somehow.<br><br>Before we can start manipulating it, we need to first download the
+					program:<br>
+					<pre><code>wget https://mercury.picoctf.net/static/f95b1ee9f29d631d99073e34703a2826/warm</code></pre>
+					<br><br>Before we want to execute this file, we want to make sure the file we downloaded is
+					executable<br>
+					<code>if [[ -x "warm" ]]; then     echo "File 'warm' is executable"; fi
+					</code><br><br>Next we need to make the file execute and <code>chmod +x warm<br>./warm</code><br><br>This produces the following output:<br><code>Hello user! Pass me a -h to learn what I can do!</code><br><br>This is a -h flag, something that quite a lot of programs use to show a help list.<br><br>For example:<br><br><code>node -h</code><br><br>Once we run <code>./warm -h</code>, We get our flag: <br><img class="picoimage" src="/images/picoctf wave a flag.png" alt="picoctf">
+		</article>
+	</section>
+</body>
+
+</html>

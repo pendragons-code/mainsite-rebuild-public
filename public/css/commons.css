@@ -12,6 +12,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	color: #93a48f;
 }
 
 p, li, figcaption {
@@ -29,6 +30,12 @@ a {
 
 a:hover {
 	text-decoration: underline;
+}
+
+code {
+	padding: 3px;
+	background-color: #000000;
+	color: #93a48f;
 }
 
 img {
@@ -69,6 +76,16 @@ li {
 #navbar ul li a:hover {
 	background: #3f2f38;
 	border-radius: 5px;
+}
+
+.commonSection {
+	border: 3px solid #93a48f;
+	width: 90%;
+	margin: 1% 5%;
+}
+
+.picoimage {
+	width: 100%;
 }
 
 article {
