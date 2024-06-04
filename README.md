@@ -1,6 +1,10 @@
 # Rebuild-MainSite:
 This is a rebuild of my personal site. This rebuild has quite a lot of configurations removed, meaning that you are expected to come up with some of your own things like api keys and more!
 
+
+# Hey there:
+If you found this a little helpful, consider [donating](https://ko-fi.com/pendragonscode). <3
+
 # How to run:
 ```
 git clone https://github.com/pendragons-code/mainsite-rebuild-public
