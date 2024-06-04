@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "./src/webserver.js",
 	"scripts": {
+		"start": "export NODE_ENV='production' && node .",
 		"consolerun": "export NODE_ENV='development' && node ."
 	},
 	"keywords": [],
