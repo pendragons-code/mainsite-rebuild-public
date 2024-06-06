@@ -1,4 +1,5 @@
 const express = require("express");
+const expressStaticGzip = require("express-static-gzip");
 const helmet = require("helmet");
 const requestIp = require("request-ip");
 require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
@@ -22,7 +23,7 @@ global.db = new QuickDB({ filePath: "DATABASE/DATABASE.sqlite" });
 require("./weather.js");
 require("./articles.js");
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 	res.setHeader("Content-Security-Policy", "frame-ancestors 'self';");
 	next();
 });
@@ -33,7 +34,7 @@ app.set("views", join(__dirname, "../views"));
 app.use(requestIp.mw());
 
 app.use((req, res, next) => {
-	//const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+	//const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
 	const ip = req.clientIp; // we will probably need to change this because nginx and proxying
 	appendFile("Logs/ipLog.txt", `[${new Date()}] Client IP: ${ip}\n`, (error) => {
 		if(error) console.error("Could not write ip to logfile", error);
@@ -41,21 +42,41 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use((err, req, res, next) => {
+	console.error(err.stack);
+	res.status(500).send("Something broke!");
+});
+
+
 app.use(helmet({
 	contentSecurityPolicy: false,
 	nosniff: true,
 	xssFilter: true,
-	hsts: { maxAge: 31536000, includesSubDomiains: true }
+	hsts: { maxAge: 31536000, includesSubDomains: true } // not way i made a typo here WOT THE HELLLLLL
 }));
 
 app.use("/", frontEndRoutes);
 app.use("/api", apiRoutes);
-app.use(express.static(join(__dirname, "../public")));
+app.use("/", expressStaticGzip(join(__dirname, "../public"), {
+	enableBrotli: true,
+	orderPreference: ["br", "gzip"],
+	cacheControl: true,
+	immutable: true,
+	maxAge: "30d"
+}));
 
-app.use(function(req, res) {
+app.use(function (req, res) {
 	res.render("404.ejs");
 });
 
-app.listen((port), async() => {
+app.listen((port), async () => {
 	console.log(`Hanging onto dear life at ${process.pid}\nCurrently listening at http://localhost:${port}!`);
+});
+
+process.on("SIGINT", () => {
+	console.log("Received SIGINT. Closing server gracefully...");
+	server.close(() => {
+		console.log("Server closed.");
+		process.exit(0);
+	});
 });
