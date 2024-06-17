@@ -15,6 +15,11 @@ global.picoCtfUrl = [];
 global.picoCtfUrlDir = [];
 global.picoCtfArticlesNames = "";
 
+// global varibales for random articles
+global.articlesUrl = [];
+global.articlesUrlDir = [];
+global.articlesNames = "";
+
 // database
 const { QuickDB } = require("quick.db");
 global.db = new QuickDB({ filePath: "DATABASE/DATABASE.sqlite" });
@@ -71,12 +76,4 @@ app.use(function (req, res) {
 
 app.listen((port), async () => {
 	console.log(`Hanging onto dear life at ${process.pid}\nCurrently listening at http://localhost:${port}!`);
-});
-
-process.on("SIGINT", () => {
-	console.log("Received SIGINT. Closing server gracefully...");
-	server.close(() => {
-		console.log("Server closed.");
-		process.exit(0);
-	});
 });

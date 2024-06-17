@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta property="og:type" content="pendragonscode.xyz">
+	<meta property="og:site_name" content="Pendragon's main site.">
+	<meta property="og:title" content="Pendragon's main site.">
+	<meta property="og:description" content="A basic site that I made for fun.">
+	<meta name="og:image" content="/images/PFP.png">
+	<meta name="theme-color" content="#1F618D">
+	<link rel="stylesheet" href="/css/commons.css">
+	<link rel="stylesheet" href="/css/landing.css">
+	<link rel="stylesheet" href="/css/mobile.css">
+	<title>Pendragon's code</title>
+	<script src="https://kit.fontawesome.com/be4616c9da.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav id="navbar">
+		<div class="dropdown">
+			<button class="dropbtn">Navigation</button>
+			<div class="dropdown-content">
+				<a href="/">Home!</a>
+				<a href="https://ko-fi.com/pendragonscode">Donate to me!</a>
+				<a href="https://github.com/pendragons-code">Github!</a>
+				<a href="/contact">Contacts!</a>
+				<a href="/picoCtf">PicoCtf!</a>
+				<a href="/articles">Articles!</a>
+				<a href="https://wordlist.mipan.site/">WordList!</a>
+				<a href="https://pixeljeff.tumblr.com/post/675186511641264128/new-dawn-2022">Wallpaper 1!</a>
+				<a href="https://www.artstation.com/artwork/r9VlQe">Wallpaper 2!</a>
+			</div>
+		</div>
+		<h1>Pendragonscode</h1>
+	</nav>
+	<section>
+		<article class="commonSection">
+			<h2>How to set up a simple minecraft server (java):</h2>
+			<p><a href="https://minecraft.net">Minecraft (we do not own this game)</a> is a popular sandbox video game that has a huge communities of regular players, modders and server creators. And as part of the many features in this game, players of like-minded communities can create their own servers and can play together!</p><br>
+			<p>In this article you will learn how to install all the stuff you need to run minecraft on a linux-based system. You will also learn more about basic configuration and deployment.</p><br>
+			<p>This guide is not meant to be an in-depth guide and assumes that you may already have some knowledge about minecraft and linux!</p>
+		</article>
+		<article class="commonSection">
+			<h2>Prerequisites:</h2>
+			<p>Before you begin, check that you have all the stuff you need!</p>
+			<ul>
+				<li>A linux-based operating system.</li>
+				<li>A user with sudo capabilities.</li>
+				<li>knowledge of your own distro!</li>
+			</ul><br>
+			<p>For the sake of this tutorial, we will be using ubuntu for demonstration!</p>
+		</article>
+		<article class="commonSection">
+			<h2>Package Installation:</h2>
+			<p>To start, we need to install java. In the case of ubuntu, you will need to add a PPA:</p><br>
+			<code>sudo add-apt-repository ppa:openjdk-r/ppa</code><br><br>
+			<p>After adding the PPA, you need to update the package sources, like so:</p><br>
+			<code>sudo apt update</code><br><br>
+			<p>After that, install java and screen (I have also added some other packages in case ubuntu does not include them):</p><br>
+			<code>sudo apt install openjdk-17-jre-headless screen unzip wget</code><br><br>
+		</article>
+		<article class="commonSection">
+			<h2>Firewall Configuration:</h2>
+			<p>Minecraft servers operate on tcp with thelu port 25565, which means you need to open it up!</p><br>
+			<code>sudo ufw allow 25565</code><br><br>
+		</article>
+		<article class="commonSection">
+			<h2>Installing the server package:</h2>
+			<p>There are many popular server variants out there, for example: papermc, vanilla and more! However, I personally prefer paper as it is flexible and optimized for servers and I never had issues using it!</p><br>
+			<code>wget https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/147/downloads/paper-1.20.6-147.jar</code><br><br>
+			<p>For me I usually like to put this inside a specific folder</p>
+			<code>mkdir minecraftServer && mv paper-1.20.6-147.jar minecraftServer && cd minecraftServer</code><br><br>
+			<p>Next, you need to execute the runtime!</p><br>
+			<code>screen -S minecraft</code><br><br>
+			<code>java -Xms1024M -Xmx1024M -jar paper-1.20.6-147.jar nogui</code><br><br>
+			<p>What this does is that it creates a detached screen session so that even when you close the terminal, you can still have the server up and running!</p><br>
+			<p>Here is a simple breakdown of what the command that we used to start the server means</p>
+			<ul>
+				<li><code>-Xms1024M</code> Means that the minimum amount of memory is 1024MB!</li>
+				<li><code>-Xmx1024M</code> Means that the maximum amount of memory is 1024MB!</li>
+				<li><code>-nogui</code> Means no need for user interface!</li>
+				<li><code>-jar</code> Tells the runtime to run this specific jar file!</li>
+			</ul>
+		</article>
+		<article class="commonSection">
+			<h2>EULA</h2>
+			<p>In the console, you will see a error saying that you need to update the EULA, this is the End User License Agreement and you need to agree to the terms before you can continue using it, to agree, open the file in your favourite text editor and change false to TRUE</p>
+			<code>nano eula.txt</code><br><br>
+			<p>Final result:</p>
+			<code>#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).<br>#Tue Mar 24 22:05:31 UTC 2020<br>eula=TRUE</code><br><br>
+			<p>Once you are done, re-run the runtime and you should have a server up and running!</p>
+		</article>
+		<article class="commonSection">
+			<h2>Notes</h2>
+			<ul>
+				<li>You should try to create a dedicated user on your system to run your minecraft server, this ensures that it is segregated, better yet, run it in docket container!</li>
+				<li>You can try adding plugins into a folder called <u>plugins</u>, you can get some from the <a href="https://www.spigotmc.org/resources/categories/spigot.4/">spigotMC resource page!</a> Personally I recommend viaversion, viabackwards and chunky!</li>
+				<li>Minecraft is very CPU, RAM and IO dependent, so ensure that your machine is capable in these fields before you do things!</li>
+				<li>Keep frequent backups, you never know when you might need it!</li>
+				<li>You can reattach screen sessions like this: <code>screen -r minecraft</code>!</li>
+			</ul>
+		</article>
+	</section>
+</body>
+
+</html>

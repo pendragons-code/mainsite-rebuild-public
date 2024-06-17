@@ -23,6 +23,10 @@ routeFrontEnd.get(`/picoctf`, async (req, res) => {
 	res.render("picoctf", { articles: picoCtfArticlesNames }); // [friendlyName, Url]
 });
 
+routeFrontEnd.get(`/articles`, async (req, res) => {
+	res.render("articles", { articles: articlesNames }); // [friendlyName, Url]
+});
+
 routeFrontEnd.get(`/contact`, async (req, res) => {
 	res.render("contact");
 });
