@@ -25,7 +25,7 @@ async function getWeather() {
 	axios.request(options)
 	.catch(async (error) => {
 		await db.set("weather", [weatherTypeOld, weatherTimeOld]);
-		console.error(error);
+		console.error(error.stack);
 	})
 	.then(async (result) => {
 		if(!result || result.detail) return await db.set("weather", [weatherTypeOld, weatherTimeOld]); // ok so I am not really sure wot happened here, but it seems that if there is a result.detail it means that there is an error
