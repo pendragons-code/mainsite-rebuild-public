@@ -54,41 +54,41 @@
 		<article class="commonSection">
 			<h2>Package Installation:</h2>
 			<p>To start, we need to install java. In the case of ubuntu, you will need to add a PPA:</p><br>
-			<code>sudo add-apt-repository ppa:openjdk-r/ppa</code><br><br>
+			<pre><code>sudo add-apt-repository ppa:openjdk-r/ppa</code></pre><br><br>
 			<p>After adding the PPA, you need to update the package sources, like so:</p><br>
-			<code>sudo apt update</code><br><br>
+			<pre><code>sudo apt update</code></pre><br><br>
 			<p>After that, install java and screen (I have also added some other packages in case ubuntu does not include them):</p><br>
-			<code>sudo apt install openjdk-17-jre-headless screen unzip wget</code><br><br>
+			<pre><code>sudo apt install openjdk-17-jre-headless screen unzip wget</code></pre><br><br>
 		</article>
 		<article class="commonSection">
 			<h2>Firewall Configuration:</h2>
-			<p>Minecraft servers operate on tcp with thelu port 25565, which means you need to open it up!</p><br>
-			<code>sudo ufw allow 25565</code><br><br>
+			<p>Minecraft servers operate on tcp with the port 25565, which means you need to open it up!</p><br>
+			<pre><code>sudo ufw allow 25565</code></pre><br><br>
 		</article>
 		<article class="commonSection">
 			<h2>Installing the server package:</h2>
 			<p>There are many popular server variants out there, for example: papermc, vanilla and more! However, I personally prefer paper as it is flexible and optimized for servers and I never had issues using it!</p><br>
-			<code>wget https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/147/downloads/paper-1.20.6-147.jar</code><br><br>
+			<pre><code>wget https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/147/downloads/paper-1.20.6-147.jar</code></pre><br><br>
 			<p>For me I usually like to put this inside a specific folder</p>
-			<code>mkdir minecraftServer && mv paper-1.20.6-147.jar minecraftServer && cd minecraftServer</code><br><br>
+			<pre><code>mkdir minecraftServer && mv paper-1.20.6-147.jar minecraftServer && cd minecraftServer</code></pre><br><br>
 			<p>Next, you need to execute the runtime!</p><br>
-			<code>screen -S minecraft</code><br><br>
-			<code>java -Xms1024M -Xmx1024M -jar paper-1.20.6-147.jar nogui</code><br><br>
+			<pre><code>screen -S minecraft</code></pre><br><br>
+			<pre><code>java -Xms1024M -Xmx1024M -jar paper-1.20.6-147.jar nogui</code></pre><br><br>
 			<p>What this does is that it creates a detached screen session so that even when you close the terminal, you can still have the server up and running!</p><br>
 			<p>Here is a simple breakdown of what the command that we used to start the server means</p>
 			<ul>
-				<li><code>-Xms1024M</code> Means that the minimum amount of memory is 1024MB!</li>
-				<li><code>-Xmx1024M</code> Means that the maximum amount of memory is 1024MB!</li>
-				<li><code>-nogui</code> Means no need for user interface!</li>
-				<li><code>-jar</code> Tells the runtime to run this specific jar file!</li>
+				<li><<pre>code>-Xms1024M</code></pre> Means that the minimum amount of memory is 1024MB!</li>
+				<li><<pre>code>-Xmx1024M</code></pre> Means that the maximum amount of memory is 1024MB!</li>
+				<li><<pre>code>-nogui</code></pre> Means no need for user interface!</li>
+				<li><<pre>code>-jar</code></pre> Tells the runtime to run this specific jar file!</li>
 			</ul>
 		</article>
 		<article class="commonSection">
 			<h2>EULA</h2>
 			<p>In the console, you will see a error saying that you need to update the EULA, this is the End User License Agreement and you need to agree to the terms before you can continue using it, to agree, open the file in your favourite text editor and change false to TRUE</p>
-			<code>nano eula.txt</code><br><br>
+			<pre><code>nano eula.txt</code></pre><br><br>
 			<p>Final result:</p>
-			<code>#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).<br>#Tue Mar 24 22:05:31 UTC 2020<br>eula=TRUE</code><br><br>
+			<pre><code>#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).<br>#Tue Mar 24 22:05:31 UTC 2020<br>eula=TRUE</code></pre><br><br>
 			<p>Once you are done, re-run the runtime and you should have a server up and running!</p>
 		</article>
 		<article class="commonSection">
@@ -98,7 +98,8 @@
 				<li>You can try adding plugins into a folder called <u>plugins</u>, you can get some from the <a href="https://www.spigotmc.org/resources/categories/spigot.4/">spigotMC resource page!</a> Personally I recommend viaversion, viabackwards and chunky!</li>
 				<li>Minecraft is very CPU, RAM and IO dependent, so ensure that your machine is capable in these fields before you do things!</li>
 				<li>Keep frequent backups, you never know when you might need it!</li>
-				<li>You can reattach screen sessions like this: <code>screen -r minecraft</code>!</li>
+				<li>You can reattach screen sessions like this: <pre><code>screen -r minecraft</code></pre>!</li>
+				<li>Minecraft is especially demanding on the I/O devices. So ensure you have a disk that is capable on it!</li>
 			</ul>
 		</article>
 	</section>
