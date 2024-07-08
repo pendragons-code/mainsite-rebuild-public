@@ -33,7 +33,7 @@ app.use(function (req, res, next) {
 	next();
 });
 
-app.set("trust proxy", true);
+app.set("trust proxy", true); // ok maybe not a good idea, but nginx, so it is forgiven
 app.set("view engine", "ejs");
 app.set("views", join(__dirname, "../views"));
 app.use(requestIp.mw());

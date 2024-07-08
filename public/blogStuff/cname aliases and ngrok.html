@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -36,16 +37,24 @@
 	</nav>
 	<section>
 		<article class="commonSection">
-					<a href="https://play.picoctf.org/practice/challenge/170"><u>Wave a flag</u></a> is a simple challenge you can find on the picoGym.<br><br>The hint is as follows
-					<br><br><code>Can you invoke help flags for a tool or binary? This program has extraordinarily helpful information.</code><br><br>This
-					tells us that the challenge revolves around an executable file and we want to manipulate it
-					somehow.<br><br>Before we can start manipulating it, we need to first download the
-					program:<br>
-					<pre><code>wget https://mercury.picoctf.net/static/f95b1ee9f29d631d99073e34703a2826/warm</code></pre>
-					<br><br>Before we want to execute this file, we want to make sure the file we downloaded is
-					executable<br>
-					<code>if [[ -x "warm" ]]; then     echo "File 'warm' is executable"; fi
-					</code><br><br>Next we need to make the file execute and <code>chmod +x warm<br>./warm</code><br><br>This produces the following output:<br><code>Hello user! Pass me a -h to learn what I can do!</code><br><br>This is a -h flag, something that quite a lot of programs use to show a help list.<br><br>For example:<br><br><code>node -h</code><br><br>Once we run <code>./warm -h</code>, We get our flag: <br><img class="picoimage" src="/images/picoctf wave a flag.png" alt="picoctf">
+			<h2>Preface</h2>
+			<p>Before I begin this article, I think you would all want some context. In my own free time, I like to work on some projects; specifically those in relation to hosting game servers. In this case, I was working on a minecraft project where we had to use <a href="https://ngrok.com/">ngrok</a> to expose the server to the world (albeit with proper configurations for security). However, <a href="https://ngrok.com/">ngrok</a> generates a long url that may be hard to remember, which can actually be solved with some DNS skills. After helping my buddy out, he turned to me and said: "Hey you should really write a guide about this!". So here I am</p>
+		</article>
+		<article class="commonSection">
+			<h2>Prequisites:</h2>
+			<ul>
+				<li><a href="https://ngrok.com/">Ngrok</a>, you need <a href="https://ngrok.com/">ngrok</a> installed</li>
+				<li>A domain that you can use</li>
+			</ul>
+		</article>
+		<article class="commonSection">
+			<h2><a href="https://ngrok.com/">Ngrok</a></h2>
+			<p>As per usual, start your <a href="https://ngrok.com/">ngrok</a> instance and set it up so that you have a public port exposed!</p>
+		</article>
+		<article class="commonSection">
+			<h2>On your Domain Manager:</h2>
+			<p>Add the exposed address from ngrok (WITHOUT THE PORT) in to the cname field. (You can use alias if you want the domain at root level)</p>
+			<img src="/images/cname.png" class="picoimage" alt="cnameconfig">
 		</article>
 	</section>
 </body>
