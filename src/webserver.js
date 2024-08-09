@@ -1,6 +1,7 @@
 const express = require("express");
 const expressStaticGzip = require("express-static-gzip");
 const helmet = require("helmet");
+const middlewares = require("../config/rateLimit.js");
 const requestIp = require("request-ip");
 require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
 const { join } = require("path"); // honestly should i just skip this and just concatenate it LMAO
@@ -52,7 +53,7 @@ app.use((err, req, res, next) => {
 	res.status(500).send("Something broke!");
 });
 
-
+app.use(middlewares);
 app.use(helmet({
 	contentSecurityPolicy: false,
 	nosniff: true,
